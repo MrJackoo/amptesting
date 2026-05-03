@@ -12,8 +12,7 @@
         "UpdateSource": "Executable",
         "UpdateSourceData": "/usr/bin/wget",
         "UpdateSourceArgs": "-qO {{$FullBaseDir}}dotnet.tar.gz https://builds.dotnet.microsoft.com/dotnet/Runtime/8.0.16/dotnet-runtime-8.0.16-linux-x64.tar.gz",
-        "SkipOnFailure": false,
-        "OneShot": false
+        "SkipOnFailure": false
     },
     {
         "UpdateStageName": ".NET Runtime Extract",
@@ -21,8 +20,7 @@
         "UpdateSource": "Executable",
         "UpdateSourceData": "/usr/bin/tar",
         "UpdateSourceArgs": "-xzf {{$FullBaseDir}}dotnet.tar.gz -C {{$FullBaseDir}}dotnet",
-        "SkipOnFailure": false,
-        "OneShot": false
+        "SkipOnFailure": false
     },
     {
         "UpdateStageName": "SteamCMD",
@@ -32,7 +30,6 @@
         "UpdateSourceArgs": "1892930",
         "UnzipUpdateSource": false,
         "OverwriteExistingFiles": false,
-        "DeleteAfterExtract": true,
-        "OneShot": false
+        "DeleteAfterExtract": true
     }
 ]

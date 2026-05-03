@@ -11,11 +11,11 @@
         "OneShot": false
     },
     {
-        "UpdateStageName": "Install DotNet",
+        "UpdateStageName": ".NET Runtime (Windows)",
         "UpdateSourcePlatform": "Linux",
-        "UpdateSource": "Script",
-        "UpdateSourceData": "export WINEPREFIX={{$FullRootDir}}.wine && if [ ! -d \"$WINEPREFIX/drive_c/Program Files/dotnet\" ]; then apt update && apt install -y winetricks && winetricks -q dotnet7; fi",
-        "OverwriteExistingFiles": false,
-        "OneShot": false
+        "UpdateSource": "Executable",
+        "UpdateSourceData": "/bin/bash",
+        "UpdateSourceArgs": "-c \"cd {{$FullRootDir}} && if [ ! -d '.wine/drive_c/Program Files/dotnet' ]; then mkdir -p '.wine/drive_c/Program Files/dotnet'; wget -qO dotnet.zip https://download.visualstudio.microsoft.com/download/pr/8c0f/dotnet-runtime-6.0.25-win-x64.zip || exit 1; unzip -q dotnet.zip -d '.wine/drive_c/Program Files/dotnet'; rm -f dotnet.zip; echo '.NET runtime installed'; else echo '.NET already present'; fi\"",
+        "SkipOnFailure": false
     }
 ]

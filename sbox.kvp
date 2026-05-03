@@ -81,4 +81,4 @@ App.ExecutableLinux=/usr/bin/wine
 App.LinuxCommandLineArgs="sbox-server.exe"
 App.Ports=@IncludeJson[sboxports.json]
 App.UpdateSources=@IncludeJson[sboxupdates.json]
-App.EnvironmentVariables={"LD_LIBRARY_PATH": "{{$FullBaseDir}}linux64:{{$FullRootDir}}linux64:%LD_LIBRARY_PATH%", "SteamAppId": "1892930", "WINEPREFIX": "{{$FullRootDir}}.wine", "WINEARCH": "win64", "WINEDEBUG": "-all"}
+App.EnvironmentVariables={"LD_LIBRARY_PATH": "{"DOTNET_ROOT":"{{$FullRootDir}}dotnet", {$FullBaseDir}}linux64:{{$FullRootDir}}linux64:%LD_LIBRARY_PATH%", "SteamAppId": "1892930", "WINEPREFIX": "{{$FullRootDir}}.wine", "WINEARCH": "win64", "WINEDEBUG": "-all"}

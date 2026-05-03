@@ -91,12 +91,12 @@ Meta.ConfigRoot=sbox.kvp
 
 App.RootDir=./sbox/
 Meta.DisplayImageSource=steam:590830
-App.BaseDirectory=./sbox/1892930/
-App.WorkingDir=./sbox/1892930
+App.BaseDirectory=./1892930/
+App.WorkingDir=./1892930
 
 App.ExecutableWin=1892930\sbox-server.exe
-App.ExecutableLinux=/bin/bash
-App.LinuxCommandLineArgs=-c "exec {{$FullBaseDir}}dotnet/dotnet {{$FullBaseDir}}/sbox-server.dll"
+App.ExecutableLinux={{$FullBaseDir}}dotnet/dotnet
+App.LinuxCommandLineArgs= {{$FullBaseDir}}sbox-server.dll {{$FormattedArgs}}
 
 App.Ports=@IncludeJson[sboxports.json]
 App.UpdateSources=@IncludeJson[sboxupdates.json]

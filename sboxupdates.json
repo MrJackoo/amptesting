@@ -4,10 +4,18 @@
         "UpdateSourcePlatform": "Linux",
         "UpdateSource": "SteamCMD",
         "UpdateSourceData": "1892930",
-        "UpdateSourceArgs": "590830",
+        "UpdateSourceArgs": "1892930",
         "UnzipUpdateSource": false,
         "OverwriteExistingFiles": false,
         "DeleteAfterExtract": true,
+        "OneShot": false
+    },
+    {
+        "UpdateStageName": "Install DotNet",
+        "UpdateSourcePlatform": "Linux",
+        "UpdateSource": "Script",
+        "UpdateSourceData": "export WINEPREFIX={{$FullRootDir}}.wine && if [ ! -d \"$WINEPREFIX/drive_c/Program Files/dotnet\" ]; then apt update && apt install -y winetricks && winetricks -q dotnet7; fi",
+        "OverwriteExistingFiles": false,
         "OneShot": false
     }
 ]

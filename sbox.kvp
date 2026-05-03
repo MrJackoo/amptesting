@@ -94,8 +94,8 @@ Meta.DisplayImageSource=steam:590830
 App.BaseDirectory=./sbox/
 App.RootDir=./sbox/
 App.WorkingDir=./sbox/1892930/
-App.ExecutableLinux=sbox-server.sh
-App.LinuxCommandLineArgs={{$FullBaseDir}}dotnet/dotnet {{$FullRootDir}}1892930/sbox-server.dll
+App.ExecutableLinux={{$FullBaseDir}}dotnet/dotnet
+App.LinuxCommandLineArgs={{$FullRootDir}}1892930/sbox-server.dll {{$FormattedArgs}}
 App.Ports=@IncludeJson[sboxports.json]
 App.UpdateSources=@IncludeJson[sboxupdates.json]
 

@@ -78,7 +78,7 @@ App.BaseDirectory=./sbox/
 App.WorkingDir=1892930
 App.ExecutableWin=sbox-server.exe
 App.ExecutableLinux=/bin/bash
-App.LinuxCommandLineArgs=-c "export WINEPREFIX={{$FullRootDir}}.wine && Xvfb :99 -screen 0 1280x720x16 & sleep 1 && export DISPLAY=:99 && wineboot -u && wineserver -w && exec wine {{$FullRootDir}}/sbox/1892930/sbox-server.exe --headless"
+App.LinuxCommandLineArgs=-c "Xvfb :99 -screen 0 1280x720x16 & while ! xdpyinfo -display :99 >/dev/null 2>&1; do sleep 0.2; done && export DISPLAY=:99 && wineboot -u && wineserver -w && sleep 2 && exec wine {{$FullRootDir}}/sbox/1892930/sbox-server.exe --headless"
 App.Ports=@IncludeJson[sboxports.json]
 App.UpdateSources=@IncludeJson[sboxupdates.json]
 App.EnvironmentVariables={

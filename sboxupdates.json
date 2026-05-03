@@ -7,6 +7,13 @@
         "SkipOnFailure": false
     },
     {
+        "UpdateStageName": "Server Directory Creation",
+        "UpdateSourcePlatform": "All",
+        "UpdateSource": "CreateDirectory",
+        "UpdateSourceArgs": "{{$FullBaseDir}}server",
+        "SkipOnFailure": false
+    },
+    {
         "UpdateStageName": ".NET Runtime Download",
         "UpdateSourcePlatform": "Linux",
         "UpdateSource": "Executable",

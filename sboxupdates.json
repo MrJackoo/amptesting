@@ -3,7 +3,7 @@
         "UpdateStageName": "Dotnet Directory Creation",
         "UpdateSourcePlatform": "All",
         "UpdateSource": "CreateDirectory",
-        "UpdateSourceArgs": "{{$FullRootDir}}1892930/dotnet",
+        "UpdateSourceArgs": "{{$FullBaseDir}}dotnet",
         "SkipOnFailure": false
     },
     {

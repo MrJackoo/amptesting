@@ -7,18 +7,20 @@
         "SkipOnFailure": false
     },
     {
-        "UpdateStageName": "Server Directory Creation",
-        "UpdateSourcePlatform": "All",
-        "UpdateSource": "CreateDirectory",
-        "UpdateSourceArgs": "{{$FullBaseDir}}server",
-        "SkipOnFailure": false
-    },
-    {
         "UpdateStageName": ".NET Runtime Download",
         "UpdateSourcePlatform": "Linux",
         "UpdateSource": "Executable",
-        "UpdateSourceData": "/bin/bash",
-        "UpdateSourceArgs": "-c \"set -e; DOTNET_DIR=\\\"{{$FullBaseDir}}dotnet\\\"; DOTNET_BIN=\\\"$DOTNET_DIR/dotnet\\\"; if [[ -x \\\"$DOTNET_BIN\\\" ]]; then InstalledVersion=$($DOTNET_BIN --list-runtimes | grep -oP 'Microsoft.NETCore.App \\K[\\d.]+' | tail -1); else InstalledVersion=\\\"\\\"; fi; LatestVersion=$(wget -qO- https://builds.dotnet.microsoft.com/dotnet/release-metadata/8.0/releases.json | grep -oP '\\\"latest-runtime\\\":\\s*\\\"\\K[^\\\"]+'); echo \\\"Installed: $InstalledVersion, Latest: $LatestVersion\\\"; if [[ \\\"$InstalledVersion\\\" == \\\"$LatestVersion\\\" ]]; then echo \\\".NET Runtime v$LatestVersion already installed. Skipping\\\" && exit 0; fi; wget -qO \\\"{{$FullBaseDir}}dotnet.tar.gz\\\" https://builds.dotnet.microsoft.com/dotnet/Runtime/$LatestVersion/dotnet-runtime-$LatestVersion-linux-x64.tar.gz || { echo \\\"Download failed. Aborting\\\"; exit 1; }; rm -rf \\\"$DOTNET_DIR\\\"/* && tar -xzf \\\"{{$FullBaseDir}}dotnet.tar.gz\\\" -C \\\"$DOTNET_DIR\\\" && rm -f \\\"{{$FullBaseDir}}dotnet.tar.gz\\\" && echo \\\".NET Runtime v$LatestVersion installed\\\"\"",
+        "UpdateSourceData": "/usr/bin/wget",
+        "UpdateSourceArgs": "-qO {{$FullBaseDir}}dotnet.tar.gz https://builds.dotnet.microsoft.com/dotnet/Runtime/8.0.16/dotnet-runtime-8.0.16-linux-x64.tar.gz",
+        "SkipOnFailure": false,
+        "OneShot": false
+    },
+    {
+        "UpdateStageName": ".NET Runtime Extract",
+        "UpdateSourcePlatform": "Linux",
+        "UpdateSource": "Executable",
+        "UpdateSourceData": "/usr/bin/tar",
+        "UpdateSourceArgs": "-xzf {{$FullBaseDir}}dotnet.tar.gz -C {{$FullBaseDir}}dotnet",
         "SkipOnFailure": false,
         "OneShot": false
     },

@@ -100,9 +100,9 @@ App.BaseDirectory=./sbox/
 App.WorkingDir=./sbox/1892930
 
 App.ExecutableWin=sbox-server.exe
-App.ExecutableLinux=/usr/bin/dotnet
+App.ExecutableLinux=/bin/bash
+App.LinuxCommandLineArgs=-c "exec dotnet {{$FullRootDir}}/sbox/1892930/sbox-server.dll"
 
-App.LinuxCommandLineArgs={{$FullRootDir}}/sbox/1892930/sbox-server.dll
 
 App.Ports=@IncludeJson[sboxports.json]
 App.UpdateSources=@IncludeJson[sboxupdates.json]

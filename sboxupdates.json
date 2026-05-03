@@ -9,5 +9,13 @@
         "OverwriteExistingFiles": false,
         "DeleteAfterExtract": true,
         "OneShot": false
+    },
+    {
+        "UpdateStageName": "Install .NET Runtime",
+        "UpdateSourcePlatform": "Linux",
+        "UpdateSource": "Executable",
+        "UpdateSourceData": "/bin/bash",
+        "UpdateSourceArgs": "-c \"set -e; if ! command -v dotnet >/dev/null 2>&1; then echo 'Installing .NET Runtime...'; apt-get update; apt-get install -y dotnet-runtime-8.0 || apt-get install -y dotnet-runtime-7.0; fi; dotnet --info\"",
+        "SkipOnFailure": false
     }
 ]

@@ -11,46 +11,59 @@ Meta.ContainerPolicyReason=
 Meta.Prerequsites=[]
 Meta.EndpointURIFormat=steam://connect/{ip}:{GenericModule.App.Ports.$SteamQueryPort}
 Meta.AppConfigId=474b67c1-52d1-4d9a-aedc-dd60d6bf84c2
+
 App.AdminMethod=STDIO
 App.HasReadableConsole=true
 App.HasWritableConsole=true
 App.DisplayName=s&box
+
 App.CommandLineArgs={{$PlatformArgs}} {{$FormattedArgs}}
 App.WindowsCommandLineArgs=
 App.CommandLineParameterFormat=+{0} "{1}"
 App.CommandLineParameterDelimiter= 
+
 App.RapidStartup=false
 App.ApplicationReadyMode=Immediate
 App.ExitMethod=OS_CLOSE
 App.ExitString=stop
 App.ExitTimeout=30
 App.ExitFile=app_exit.lck
+
 App.SupportsLiveSettingsChanges=False
 App.LiveSettingChangeCommandFormat=set {0} "{1}"
+
 App.ApplicationIPBinding=0.0.0.0
 App.AdminPortRef=RemoteAdminPort
-App.UniversalSleepApplicationUDPPortRef=GamePort1
-App.PrimaryApplicationPortRef=GamePort1
+App.UniversalSleepApplicationUDPPortRef=MainGamePort
+App.PrimaryApplicationPortRef=MainGamePort
 App.UniversalSleepSteamQueryPortRef=SteamQueryPort
+
 App.MaxUsers=8
 App.UseRandomAdminPassword=True
 App.RemoteAdminPassword=
 App.AdminLoginTransform=None
+
 App.RCONConnectDelaySeconds=30
 App.RCONConnectRetrySeconds=15
 App.RCONHeartbeatCommand=ping
 App.RCONHeartbeatMinutes=0
+
 App.TelnetLoginFormat={0}
 App.SteamUpdateAnonymousLogin=True
 App.SteamForceLoginPrompt=False
+
 App.SupportsUniversalSleep=False
 App.WakeupMode=Any
+
 App.TemplateMatchRegex={{(\$?[\w]+)}}
+
 App.MonitorChildProcess=False
 App.MonitorChildProcessWaitMs=1000
 App.MonitorChildProcessName=
+
 App.Compatibility=None
-App.SteamWorkshopDownloadLocation={{$FullBaseDir}}undefined
+App.SteamWorkshopDownloadLocation={{$FullBaseDir}}workshop
+
 Console.FilterMatchRegex=
 Console.FilterMatchReplacement=
 Console.ThrowawayMessageRegex=(WARNING|ERROR): Shader.+
@@ -58,29 +71,38 @@ Console.UpdateAvailableRegex=^\[\d\d:\d\d:\d\d\] \[INFO\] A new server update is
 Console.SuppressLogAtStart=False
 Console.ActivateLogRegex=
 Console.UserActions={}
+
 Console.SleepMode=False
 Console.SleepOnStart=False
 Console.SleepDelayMinutes=5
 Console.DozeDelay=2
 Console.AutoRetryCount=5
 Console.SleepStartThresholdSeconds=25
+
 Console.AppReadyRegex=^Server\s+is\s+Ready$
 Console.UserJoinRegex=^User\s+(?<username>.+)\s+\((?<userid>.+)\)\s+connected\s+from\s+\[(?<endpoint>.+)\]$
 Console.UserLeaveRegex=^User\s+(?<username>.+)\s+\((?<userid>.+)\)\s+disconnected\.\s+Reason:\s+.*$
 Console.UserChatRegex=^(?<username>.+):\s+(?<message>.+)$
+
 Meta.OS=3
 Meta.ConfigManifest=sboxconfig.json
 Meta.MetaConfigManifest=sboxmetaconfig.json
 Meta.ConfigRoot=sbox.kvp
+
 App.RootDir=./sbox/
 Meta.DisplayImageSource=steam:590830
 App.BaseDirectory=./sbox/1892930/
 App.WorkingDir=./sbox/1892930
+
 App.ExecutableWin=1892930\sbox-server.exe
 App.ExecutableLinux=/bin/bash
-App.LinuxCommandLineArgs=-c "exec $HOME/.dotnet/dotnet {{$WorkingDir}}/sbox-server.dll"
+App.LinuxCommandLineArgs=-c "exec {{$FullBaseDir}}dotnet/dotnet {{$WorkingDir}}/sbox-server.dll"
+
 App.Ports=@IncludeJson[sboxports.json]
 App.UpdateSources=@IncludeJson[sboxupdates.json]
+
 App.EnvironmentVariables={
-  "LD_LIBRARY_PATH": "{{$FullBaseDir}}linux64:{{$FullRootDir}}linux64:%LD_LIBRARY_PATH%"
+  "LD_LIBRARY_PATH": "{{$FullBaseDir}}linux64:{{$FullRootDir}}linux64:$LD_LIBRARY_PATH",
+  "DOTNET_ROOT": "{{$FullBaseDir}}dotnet",
+  "SteamAppId": "590830"
 }

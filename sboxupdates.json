@@ -1,5 +1,27 @@
 [
     {
+        "UpdateStageName": "Server Directory Creation",
+        "UpdateSourcePlatform": "All",
+        "UpdateSource": "CreateDirectory",
+        "UpdateSourceArgs": "{{$FullBaseDir}}server",
+        "SkipOnFailure": false
+    },
+    {
+        "UpdateStageName": "Dotnet Directory Creation",
+        "UpdateSourcePlatform": "All",
+        "UpdateSource": "CreateDirectory",
+        "UpdateSourceArgs": "{{$FullBaseDir}}dotnet",
+        "SkipOnFailure": false
+    },
+    {
+        "UpdateStageName": ".NET Runtime Download",
+        "UpdateSourcePlatform": "Linux",
+        "UpdateSource": "Executable",
+        "UpdateSourceData": "/bin/bash",
+        "UpdateSourceArgs": "-c \"cd \\\"{{$FullBaseDir}}\\\" && if [[ -x dotnet/dotnet ]]; then InstalledVersion=$(dotnet/dotnet --version | xargs); else InstalledVersion=\\\"\\\"; fi; LatestVersion=$(wget -qO- https://builds.dotnet.microsoft.com/dotnet/release-metadata/8.0/releases.json | grep -oP '\\\"latest-runtime\\\":\\s*\\\"\\K[^\\\"]+'); if [[ \\\"$InstalledVersion\\\" == \\\"$LatestVersion\\\" ]]; then echo \\\".NET Runtime v$LatestVersion already installed. Skipping\\\" && exit 0; fi; wget -qO dotnet.tar.gz https://builds.dotnet.microsoft.com/dotnet/Runtime/$LatestVersion/dotnet-runtime-$LatestVersion-linux-x64.tar.gz || { echo \\\"Download failed from Microsoft CDN. Aborting\\\"; exit 1; }; rm -rf dotnet/* && tar -xzf dotnet.tar.gz -C dotnet && rm -f dotnet.tar.gz && echo \\\".NET Runtime v$LatestVersion installed\\\"\"",
+        "SkipOnFailure": false
+    },
+    {
         "UpdateStageName": "SteamCMD",
         "UpdateSourcePlatform": "Linux",
         "UpdateSource": "SteamCMD",
@@ -8,15 +30,6 @@
         "UnzipUpdateSource": false,
         "OverwriteExistingFiles": false,
         "DeleteAfterExtract": true,
-        "OneShot": false
-    },
-    {
-        "UpdateStageName": "Install .NET Runtime",
-        "UpdateSourcePlatform": "Linux",
-        "UpdateSource": "Executable",
-        "UpdateSourceData": "/bin/bash",
-        "UpdateSourceArgs": "-c \"set -e; curl -sSL https://dot.net/v1/dotnet-install.sh -o /tmp/dotnet-install.sh; chmod +x /tmp/dotnet-install.sh; /tmp/dotnet-install.sh --channel 8.0 --runtime dotnet --install-dir $HOME/.dotnet; echo 'export PATH=$HOME/.dotnet:$PATH' >> $HOME/.bashrc; export PATH=$HOME/.dotnet:$PATH; dotnet --info\"",
-        "SkipOnFailure": false,
         "OneShot": false
     }
 ]

@@ -19,7 +19,7 @@
         "UpdateSourcePlatform": "Linux",
         "UpdateSource": "Executable",
         "UpdateSourceData": "/usr/bin/tar",
-        "UpdateSourceArgs": "-xzf {{$FullBaseDir}}1892930/dotnet.tar.gz -C {{$FullBaseDir}}dotnet",
+        "UpdateSourceArgs": "-xzf {{$FullBaseDir}}1892930/dotnet.tar.gz -C {{$FullBaseDir}}1892930/dotnet",
         "SkipOnFailure": false
     },
     {

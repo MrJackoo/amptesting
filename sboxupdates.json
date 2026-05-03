@@ -11,11 +11,11 @@
         "OneShot": false
     },
     {
-        "UpdateStageName": "Install .NET Runtime",
+        "UpdateStageName": "Install Dotnet (Local)",
         "UpdateSourcePlatform": "Linux",
         "UpdateSource": "Executable",
         "UpdateSourceData": "/bin/bash",
-        "UpdateSourceArgs": "-c \"set -e; if ! command -v dotnet >/dev/null 2>&1; then echo 'Installing .NET Runtime...'; apt-get update; apt-get install -y dotnet-runtime-8.0 || apt-get install -y dotnet-runtime-7.0; fi; dotnet --info\"",
+        "UpdateSourceArgs": "-c \"set -e; cd {{$FullRootDir}}; if [ ! -d dotnet ]; then mkdir -p dotnet && curl -sSL https://dot.net/v1/dotnet-install.sh | bash /dev/stdin --channel 8.0 --install-dir dotnet; fi && ./dotnet/dotnet --info\"",
         "SkipOnFailure": false
     }
 ]

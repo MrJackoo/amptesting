@@ -89,11 +89,13 @@ Meta.ConfigManifest=sboxconfig.json
 Meta.MetaConfigManifest=sboxmetaconfig.json
 Meta.ConfigRoot=sbox.kvp
 
+
 Meta.DisplayImageSource=steam:590830
-App.RootDir=./sbox/1892930/
+App.BaseDirectory=./sbox/
+App.RootDir=./sbox/
 App.WorkingDir=./sbox/1892930/
 App.ExecutableLinux=sbox-server.sh
-App.LinuxCommandLineArgs={{$FormattedArgs}}
+App.LinuxCommandLineArgs={{$FullBaseDir}}/dotnet/dotnet {{$FullRootDir}}/1892930/sbox-server.sh
 App.Ports=@IncludeJson[sboxports.json]
 App.UpdateSources=@IncludeJson[sboxupdates.json]
 

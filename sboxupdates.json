@@ -15,7 +15,7 @@
         "UpdateSourcePlatform": "Linux",
         "UpdateSource": "Executable",
         "UpdateSourceData": "/bin/bash",
-        "UpdateSourceArgs": "-c \"set -e; curl -sSL https://dot.net/v1/dotnet-install.sh -o /tmp/dotnet-install.sh; chmod +x /tmp/dotnet-install.sh; /tmp/dotnet-install.sh --channel 8.0 --runtime dotnet --install-dir /usr/local/dotnet; ln -sf /usr/local/dotnet/dotnet /usr/local/bin/dotnet; dotnet --info\"",
+        "UpdateSourceArgs": "-c \"set -e; curl -sSL https://dot.net/v1/dotnet-install.sh -o /tmp/dotnet-install.sh; chmod +x /tmp/dotnet-install.sh; /tmp/dotnet-install.sh --channel 8.0 --runtime dotnet --install-dir $HOME/.dotnet; echo 'export PATH=$HOME/.dotnet:$PATH' >> $HOME/.bashrc; export PATH=$HOME/.dotnet:$PATH; dotnet --info\"",
         "SkipOnFailure": false,
         "OneShot": false
     }

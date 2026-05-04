@@ -28,7 +28,7 @@
         "UpdateSource": "SteamCMD",
         "UpdateSourceData": "1892930",
         "UpdateSourceArgs": "590830",
-        "UpdateSourceVersion": "staging",
+        "UpdateSourceVersion": "{{ReleaseStream}}",
         "UnzipUpdateSource": false,
         "OverwriteExistingFiles": false,
         "DeleteAfterExtract": true

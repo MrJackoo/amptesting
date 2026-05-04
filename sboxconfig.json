@@ -83,5 +83,22 @@
         "Hidden": false,
         "SkipIfEmpty": true,
         "EnumValues": {}
+    },
+    {
+        "DisplayName": "Server Release Stream",
+        "Category": "Server Settings",
+        "Subcategory": "Steam Downloads:download",
+        "Description": "Sets the server release stream to install. Note: Update the server after changing this setting",
+        "Keywords": "release,stream,beta,version",
+        "FieldName": "ReleaseStream",
+        "InputType": "enum",
+        "IsFlagArgument": false,
+        "ParamFieldName": "ReleaseStream",
+        "IncludeInCommandLine": false,
+        "DefaultValue": "public",
+        "EnumValues": {
+            "public": "Public (default)",
+            "staging": "Staging Version"
+        }
     }
 ]

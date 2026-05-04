@@ -32,5 +32,13 @@
         "UnzipUpdateSource": false,
         "OverwriteExistingFiles": false,
         "DeleteAfterExtract": true
+    },
+    {
+        "UpdateStageName": "Wine Prefix Init",
+        "UpdateSourcePlatform": "Linux",
+        "UpdateSource": "Executable",
+        "UpdateSourceData": "/usr/bin/xvfb-run",
+        "UpdateSourceArgs": "-a wine wineboot --init",
+        "SkipOnFailure": true
     }
 ]

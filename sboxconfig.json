@@ -2,7 +2,7 @@
     {
         "DisplayName": "Game",
         "Category": "Server Settings",
-        "Subcategory": "Server:Gamemode",
+        "Subcategory": "Server:Browser:2",
         "Description": "The game package to load and optionally a map package.",
         "Keywords": "game",
         "FieldName": "game",
@@ -20,7 +20,7 @@
     {
         "DisplayName": "Hostname",
         "Category": "Server Settings",
-        "Subcategory": "Server:Browser",
+        "Subcategory": "Server:Browser:1",
         "Description": "Name dispalyed in server browser.",
         "Keywords": "hostname",
         "FieldName": "hostname",
@@ -38,7 +38,7 @@
     {
         "DisplayName": "Server Token",
         "Category": "Server Settings",
-        "Subcategory": "Server:Browser",
+        "Subcategory": "Server:Browser:1",
         "Description": "Visit https://steamcommunity.com/dev/managegameservers to generate a token associated with your Steam Account. You can use this token to ensure your Dedicated Server always has the same Steam ID for other players to connect to it. You don't need this, but otherwise every time you load the server it will generate a new Steam ID.",
         "Keywords": "server,token",
         "FieldName": "net_game_server_token",
@@ -56,7 +56,7 @@
     {
         "DisplayName": "Map",
         "Category": "Server Settings",
-        "Subcategory": "Server:Gamemode",
+        "Subcategory": "Server:Browser:2",
         "Description": "Choose what map to use",
         "Keywords": "map",
         "FieldName": "map",
@@ -74,7 +74,7 @@
     {
         "DisplayName": "Extensions",
         "Category": "Server Settings",
-        "Subcategory": "Server:Gamemode",
+        "Subcategory": "Server:Browser:2",
         "Description": "This convar loads extensions or addons onto your server. Each extension is separated by a semicolon.",
         "Keywords": "extensions",
         "FieldName": "extensions",

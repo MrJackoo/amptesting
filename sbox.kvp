@@ -102,5 +102,5 @@ App.UpdateSources=@IncludeJson[sboxupdates.json]
 App.EnvironmentVariables={
   "LD_LIBRARY_PATH": "/AMP/sbox/1892930/bin/linuxsteamrt64:/AMP/sbox/linux64",
   "DOTNET_ROOT": "/AMP/sbox/1892930/dotnet",
-  "SteamAppId": "590830"
+  "SteamAppId": "1892930"
 }

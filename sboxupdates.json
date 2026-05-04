@@ -27,7 +27,7 @@
         "UpdateSourcePlatform": "Linux",
         "UpdateSource": "SteamCMD",
         "UpdateSourceData": "1892930",
-        "UpdateSourceArgs": "staging",
+        "UpdateSourceArgs": "beta staging",
         "UnzipUpdateSource": false,
         "OverwriteExistingFiles": false,
         "DeleteAfterExtract": true
